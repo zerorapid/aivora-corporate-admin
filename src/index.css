@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-av-blue-900: #005A9E;
+  --color-av-blue-800: #0078D4;
+  --color-av-blue-700: #2B88D8;
+  --color-av-success: #107C10;
+  --color-av-warning: #D83B01;
+  --color-av-error: #A4161A;
+  
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  
+  --radius-av-s: 8px;
+  --radius-av-m: 16px;
+  --radius-av-l: 24px;
+  --radius-av-xl: 32px;
+
+  --shadow-av-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-av-md: 0 8px 24px rgba(0, 120, 212, 0.05);
+  --shadow-av-lg: 0 12px 40px rgba(0, 120, 212, 0.08);
+}
+
+@layer base {
+  * {
+    @apply border-[#EAEAEA];
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    @apply bg-[#F8F7F4] text-[#111111] font-sans antialiased overflow-hidden selection:bg-[#0078D4]/10 selection:text-[#0078D4];
+  }
+}
+
+@layer components {
+  .av-card {
+    @apply bg-white rounded-[32px] p-8 border border-[#EAEAEA] shadow-av-sm transition-all duration-300;
+  }
+  
+  .av-btn {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all cursor-pointer border-[1.5px] border-transparent active:scale-[0.98];
+  }
+  
+  .av-btn-primary {
+    @apply bg-[#111111] text-white hover:bg-[#0078D4] shadow-xl shadow-black/10;
+  }
+  
+  .av-btn-secondary {
+    @apply bg-white border-[#EAEAEA] text-[#111111] hover:bg-[#F8F7F4] hover:border-[#111111];
+  }
+
+  .av-badge {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#F8F7F4] text-[#605E5C] border border-[#EAEAEA];
+  }
+
+  .fluent-sidebar-item {
+    @apply flex items-center gap-4 px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all relative w-full text-left;
+  }
+
+  .fluent-sidebar-item.active {
+    @apply text-white bg-white/5;
+  }
+
+  .fluent-sidebar-item.active::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-[#0078D4] rounded-r-full shadow-[0_0_15px_rgba(0,120,212,0.5)];
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #EAEAEA;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #D1D1D1;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20;
+}
